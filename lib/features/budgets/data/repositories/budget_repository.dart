@@ -1,5 +1,6 @@
 import 'package:drift/drift.dart';
 import 'package:dime_money/core/database/app_database.dart';
+import 'package:dime_money/core/money/money.dart';
 
 class BudgetRepository {
   final AppDatabase _db;
@@ -7,17 +8,15 @@ class BudgetRepository {
   BudgetRepository(this._db);
 
   Stream<List<Budget>> watchForMonth(int year, int month) {
-    return (_db.select(_db.budgets)
-          ..where(
-              (b) => b.year.equals(year) & b.month.equals(month)))
-        .watch();
+    return (_db.select(
+      _db.budgets,
+    )..where((b) => b.year.equals(year) & b.month.equals(month))).watch();
   }
 
   Future<List<Budget>> getForMonth(int year, int month) {
-    return (_db.select(_db.budgets)
-          ..where(
-              (b) => b.year.equals(year) & b.month.equals(month)))
-        .get();
+    return (_db.select(
+      _db.budgets,
+    )..where((b) => b.year.equals(year) & b.month.equals(month))).get();
   }
 
   Future<void> upsert({
@@ -27,24 +26,36 @@ class BudgetRepository {
     required int month,
   }) async {
     // Check if exists
-    final existing = await (_db.select(_db.budgets)
-          ..where((b) =>
-              b.categoryId.equals(categoryId) &
-              b.year.equals(year) &
-              b.month.equals(month)))
-        .getSingleOrNull();
+    final existing =
+        await (_db.select(_db.budgets)..where(
+              (b) =>
+                  b.categoryId.equals(categoryId) &
+                  b.year.equals(year) &
+                  b.month.equals(month),
+            ))
+            .getSingleOrNull();
 
     if (existing != null) {
       await _db
           .update(_db.budgets)
-          .replace(existing.copyWith(amount: amount));
+          .replace(
+            existing.copyWith(
+              amount: amount,
+              amountMinor: majorToMinor(amount),
+            ),
+          );
     } else {
-      await _db.into(_db.budgets).insert(BudgetsCompanion.insert(
-            categoryId: categoryId,
-            amount: amount,
-            year: year,
-            month: month,
-          ));
+      await _db
+          .into(_db.budgets)
+          .insert(
+            BudgetsCompanion.insert(
+              categoryId: categoryId,
+              amount: amount,
+              amountMinor: Value(majorToMinor(amount)),
+              year: year,
+              month: month,
+            ),
+          );
     }
   }
 

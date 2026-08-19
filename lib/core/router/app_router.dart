@@ -8,6 +8,9 @@ import 'package:dime_money/features/accounts/presentation/screens/manage_account
 import 'package:dime_money/features/categories/presentation/screens/manage_categories_screen.dart';
 import 'package:dime_money/features/recurring/presentation/screens/recurring_screen.dart';
 import 'package:dime_money/features/sms_import/presentation/screens/sms_review_screen.dart';
+import 'package:dime_money/features/affordability/presentation/screens/affordability_screen.dart';
+import 'package:dime_money/features/settings/presentation/screens/planning_profile_screen.dart';
+import 'package:dime_money/features/goals/presentation/screens/goals_screen.dart';
 import 'package:dime_money/shared/widgets/app_bottom_nav.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -16,6 +19,14 @@ final appRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
   initialLocation: '/dashboard',
   routes: [
+    GoRoute(
+      path: '/affordability',
+      builder: (context, state) => const AffordabilityScreen(),
+    ),
+    GoRoute(
+      path: '/goals',
+      builder: (context, state) => const GoalsScreen(),
+    ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return AppBottomNav(navigationShell: navigationShell);
@@ -53,23 +64,23 @@ final appRouter = GoRouter(
               routes: [
                 GoRoute(
                   path: 'accounts',
-                  builder: (context, state) =>
-                      const ManageAccountsScreen(),
+                  builder: (context, state) => const ManageAccountsScreen(),
                 ),
                 GoRoute(
                   path: 'categories',
-                  builder: (context, state) =>
-                      const ManageCategoriesScreen(),
+                  builder: (context, state) => const ManageCategoriesScreen(),
                 ),
                 GoRoute(
                   path: 'recurring',
-                  builder: (context, state) =>
-                      const RecurringScreen(),
+                  builder: (context, state) => const RecurringScreen(),
                 ),
                 GoRoute(
                   path: 'sms-import',
-                  builder: (context, state) =>
-                      const SmsReviewScreen(),
+                  builder: (context, state) => const SmsReviewScreen(),
+                ),
+                GoRoute(
+                  path: 'planning',
+                  builder: (context, state) => const PlanningProfileScreen(),
                 ),
               ],
             ),

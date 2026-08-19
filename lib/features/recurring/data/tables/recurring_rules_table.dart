@@ -7,6 +7,8 @@ class RecurringRules extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get type => text().map(const TransactionTypeConverter())();
   RealColumn get amount => real()();
+  IntColumn get amountMinor => integer().withDefault(const Constant(0))();
+  TextColumn get currency => text().withDefault(const Constant('USD'))();
   IntColumn get categoryId =>
       integer().nullable().references(Categories, #id)();
   IntColumn get accountId => integer().references(Accounts, #id)();

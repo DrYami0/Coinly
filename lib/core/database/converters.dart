@@ -36,3 +36,16 @@ class RecurrenceTypeConverter extends TypeConverter<RecurrenceType, String> {
   @override
   String toSql(RecurrenceType value) => value.name;
 }
+
+class GoalStatusConverter extends TypeConverter<GoalStatus, String> {
+  const GoalStatusConverter();
+
+  @override
+  GoalStatus fromSql(String fromDb) => GoalStatus.values.firstWhere(
+        (status) => status.name == fromDb,
+        orElse: () => GoalStatus.active,
+      );
+
+  @override
+  String toSql(GoalStatus value) => value.name;
+}

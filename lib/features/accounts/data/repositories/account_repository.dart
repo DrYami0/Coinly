@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:dime_money/core/database/app_database.dart';
 import 'package:dime_money/core/constants/enums.dart';
+import 'package:dime_money/core/money/money.dart';
 
 class AccountRepository {
   final AppDatabase _db;
@@ -22,8 +23,9 @@ class AccountRepository {
   }
 
   Future<Account?> getById(int id) {
-    return (_db.select(_db.accounts)..where((a) => a.id.equals(id)))
-        .getSingleOrNull();
+    return (_db.select(
+      _db.accounts,
+    )..where((a) => a.id.equals(id))).getSingleOrNull();
   }
 
   Future<int> insert({
@@ -32,26 +34,39 @@ class AccountRepository {
     double initialBalance = 0,
     required int color,
     required int iconCodePoint,
+    String currency = defaultCurrencyCode,
   }) {
-    return _db.into(_db.accounts).insert(AccountsCompanion.insert(
-          name: name,
-          type: type,
-          initialBalance: Value(initialBalance),
-          color: color,
-          iconCodePoint: iconCodePoint,
-        ));
+    return _db
+        .into(_db.accounts)
+        .insert(
+          AccountsCompanion.insert(
+            name: name,
+            type: type,
+            initialBalance: Value(initialBalance),
+            initialBalanceMinor: Value(majorToMinor(initialBalance)),
+            currency: Value(currency),
+            color: color,
+            iconCodePoint: iconCodePoint,
+          ),
+        );
   }
 
   Future<void> update(Account account) {
-    return _db.update(_db.accounts).replace(account);
+    return _db
+        .update(_db.accounts)
+        .replace(
+          account.copyWith(
+            initialBalanceMinor: majorToMinor(account.initialBalance),
+          ),
+        );
   }
 
   Future<void> archive(int id) async {
     final account = await getById(id);
     if (account != null) {
-      await _db.update(_db.accounts).replace(
-            account.copyWith(isArchived: true),
-          );
+      await _db
+          .update(_db.accounts)
+          .replace(account.copyWith(isArchived: true));
     }
   }
 
@@ -60,31 +75,40 @@ class AccountRepository {
     final account = await getById(accountId);
     if (account == null) return 0;
 
-    final result = await _db.customSelect(
-      'SELECT '
-      "COALESCE(SUM(CASE WHEN type = 'income' AND account_id = ?1 THEN amount ELSE 0 END), 0) AS income, "
-      "COALESCE(SUM(CASE WHEN type = 'expense' AND account_id = ?1 THEN amount ELSE 0 END), 0) AS expense, "
-      "COALESCE(SUM(CASE WHEN type = 'transfer' AND to_account_id = ?1 THEN amount ELSE 0 END), 0) AS tin, "
-      "COALESCE(SUM(CASE WHEN type = 'transfer' AND account_id = ?1 THEN amount ELSE 0 END), 0) AS tout "
-      'FROM transactions WHERE account_id = ?1 OR to_account_id = ?1',
-      variables: [Variable.withInt(accountId)],
-    ).getSingle();
+    final result = await _db
+        .customSelect(
+          'SELECT '
+          "COALESCE(SUM(CASE WHEN type = 'income' AND account_id = ?1 THEN amount_minor ELSE 0 END), 0) AS income, "
+          "COALESCE(SUM(CASE WHEN type = 'expense' AND account_id = ?1 THEN amount_minor ELSE 0 END), 0) AS expense, "
+          "COALESCE(SUM(CASE WHEN type = 'transfer' AND to_account_id = ?1 THEN amount_minor ELSE 0 END), 0) AS tin, "
+          "COALESCE(SUM(CASE WHEN type = 'transfer' AND account_id = ?1 THEN amount_minor ELSE 0 END), 0) AS tout "
+          'FROM transactions WHERE account_id = ?1 OR to_account_id = ?1',
+          variables: [Variable.withInt(accountId)],
+        )
+        .getSingle();
 
-    return account.initialBalance +
-        result.read<double>('income') -
-        result.read<double>('expense') +
-        result.read<double>('tin') -
-        result.read<double>('tout');
+    return (account.initialBalanceMinor +
+            result.read<int>('income') -
+            result.read<int>('expense') +
+            result.read<int>('tin') -
+            result.read<int>('tout')) /
+        100;
   }
 
   /// Compute total balance across all non-archived accounts in a single query.
   Future<double> computeTotalBalance() async {
+    return (await computeTotalBalanceMinor()) / 100;
+  }
+
+  Future<int> computeTotalBalanceMinor() async {
     // Sum initial balances
-    final initResult = await _db.customSelect(
-      'SELECT COALESCE(SUM(initial_balance), 0) AS total '
-      'FROM accounts WHERE is_archived = 0',
-    ).getSingle();
-    final initTotal = initResult.read<double>('total');
+    final initResult = await _db
+        .customSelect(
+          'SELECT COALESCE(SUM(initial_balance_minor), 0) AS total '
+          'FROM accounts WHERE is_archived = 0',
+        )
+        .getSingle();
+    final initTotal = initResult.read<int>('total');
 
     // Get IDs of non-archived accounts for transaction filtering
     final accounts = await getAll();
@@ -95,20 +119,22 @@ class AccountRepository {
     final vars = ids.map((id) => Variable.withInt(id)).toList();
 
     // Sum income, expense, transfer-in, transfer-out for all active accounts
-    final result = await _db.customSelect(
-      'SELECT '
-      "COALESCE(SUM(CASE WHEN type = 'income' AND account_id IN ($placeholders) THEN amount ELSE 0 END), 0) AS income, "
-      "COALESCE(SUM(CASE WHEN type = 'expense' AND account_id IN ($placeholders) THEN amount ELSE 0 END), 0) AS expense, "
-      "COALESCE(SUM(CASE WHEN type = 'transfer' AND to_account_id IN ($placeholders) AND account_id NOT IN ($placeholders) THEN amount ELSE 0 END), 0) AS tin, "
-      "COALESCE(SUM(CASE WHEN type = 'transfer' AND account_id IN ($placeholders) AND to_account_id NOT IN ($placeholders) THEN amount ELSE 0 END), 0) AS tout "
-      'FROM transactions',
-      variables: [...vars, ...vars, ...vars, ...vars, ...vars, ...vars],
-    ).getSingle();
+    final result = await _db
+        .customSelect(
+          'SELECT '
+          "COALESCE(SUM(CASE WHEN type = 'income' AND account_id IN ($placeholders) THEN amount_minor ELSE 0 END), 0) AS income, "
+          "COALESCE(SUM(CASE WHEN type = 'expense' AND account_id IN ($placeholders) THEN amount_minor ELSE 0 END), 0) AS expense, "
+          "COALESCE(SUM(CASE WHEN type = 'transfer' AND to_account_id IN ($placeholders) AND account_id NOT IN ($placeholders) THEN amount_minor ELSE 0 END), 0) AS tin, "
+          "COALESCE(SUM(CASE WHEN type = 'transfer' AND account_id IN ($placeholders) AND to_account_id NOT IN ($placeholders) THEN amount_minor ELSE 0 END), 0) AS tout "
+          'FROM transactions',
+          variables: [...vars, ...vars, ...vars, ...vars, ...vars, ...vars],
+        )
+        .getSingle();
 
     return initTotal +
-        result.read<double>('income') -
-        result.read<double>('expense') +
-        result.read<double>('tin') -
-        result.read<double>('tout');
+        result.read<int>('income') -
+        result.read<int>('expense') +
+        result.read<int>('tin') -
+        result.read<int>('tout');
   }
 }

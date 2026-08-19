@@ -7,6 +7,8 @@ class Accounts extends Table {
   TextColumn get name => text().withLength(min: 1, max: 50)();
   TextColumn get type => text().map(const AccountTypeConverter())();
   RealColumn get initialBalance => real().withDefault(const Constant(0.0))();
+  IntColumn get initialBalanceMinor => integer().withDefault(const Constant(0))();
+  TextColumn get currency => text().withDefault(const Constant('USD'))();
   IntColumn get color => integer()();
   IntColumn get iconCodePoint => integer()();
   BoolColumn get isArchived => boolean().withDefault(const Constant(false))();

@@ -51,6 +51,20 @@ class SettingsScreen extends ConsumerWidget {
             trailing: const Icon(Icons.chevron_right),
             onTap: () => context.go('/settings/recurring'),
           ),
+          ListTile(
+            leading: const Icon(Icons.tune),
+            title: const Text('Financial setup'),
+            subtitle: const Text('Safe-to-Spend inputs and forecast planning'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.go('/settings/planning'),
+          ),
+          ListTile(
+            leading: const Icon(Icons.flag_outlined),
+            title: const Text('Savings goals'),
+            subtitle: const Text('Track targets and planned contributions'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push('/goals'),
+          ),
           const Divider(),
           _SectionHeader('Preferences'),
           SwitchListTile(
