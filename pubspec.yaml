@@ -1,0 +1,73 @@
+name: coinly
+description: A minimal, beautiful personal finance tracker
+publish_to: 'none'
+version: 0.6.0+9
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State management
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+
+  # Database
+  drift: ^2.22.1
+  sqlite3_flutter_libs: ^0.5.28
+  path_provider: ^2.1.5
+  path: ^1.9.1
+
+  # Navigation
+  go_router: ^14.8.1
+
+  # UI
+  fl_chart: ^0.70.2
+  flutter_animate: ^4.5.2
+  gap: ^3.0.1
+
+  # Utils
+  local_auth: ^2.3.0
+  share_plus: ^10.1.4
+  file_picker: ^8.1.7
+  csv: ^6.0.0
+  shared_preferences: ^2.3.5
+  home_widget: ^0.7.0
+  quick_actions: ^1.0.7
+  intl: ^0.20.2
+  package_info_plus: ^9.0.0
+  http: ^1.2.2
+  open_filex: ^4.5.0
+  url_launcher: ^6.3.1
+
+  # SMS Import
+  flutter_sms_inbox: ^1.0.4
+  permission_handler: ^12.0.1
+  notification_listener_service: ^0.3.1
+  supabase_flutter: ^2.17.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.14
+  drift_dev: ^2.22.1
+  riverpod_generator: ^2.6.3
+  riverpod_lint: ^2.6.3
+  custom_lint: ^0.7.1
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  adaptive_icon_background: "#6750A4"
+  adaptive_icon_foreground: "assets/icon/app_icon_foreground.png"
+
+flutter:
+  uses-material-design: true
