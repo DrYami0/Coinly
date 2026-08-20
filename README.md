@@ -1,19 +1,17 @@
-# Dime Money
+# Coinly
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![CI](https://github.com/Priyans-hu/dime-money/actions/workflows/ci.yml/badge.svg)](https://github.com/Priyans-hu/dime-money/actions/workflows/ci.yml)
-[![Latest Release](https://img.shields.io/github/v/release/Priyans-hu/dime-money)](https://github.com/Priyans-hu/dime-money/releases)
-![Downloads](https://img.shields.io/github/downloads/Priyans-hu/dime-money/total)
+[![CI](https://github.com/DrYami0/Coinly/actions/workflows/ci.yml/badge.svg)](https://github.com/DrYami0/Coinly/actions/workflows/ci.yml)
+[![Latest Release](https://img.shields.io/github/v/release/DrYami0/Coinly)](https://github.com/DrYami0/Coinly/releases)
+![Downloads](https://img.shields.io/github/downloads/DrYami0/Coinly/total)
 
 A minimal, beautiful personal finance tracker for **Android** and **iOS**. No sign-up, no cloud, fully local.
 
-Inspired by [Dime](https://github.com/rarfell/dimeApp) (iOS-only) and [Ivy Wallet](https://github.com/Ivy-Apps/ivy-wallet) (Android-only) — bridging the gap between both platforms with one cross-platform app.
-
 <!-- Screenshots coming soon -->
 
-## Why Dime Money?
+## Why Coinly?
 
-Most finance apps are either too simple (just a list) or too complex (50 settings before you start). Dime Money sits in the middle:
+Most finance apps are either too simple (just a list) or too complex (50 settings before you start). Coinly sits in the middle:
 
 - **Know your balance** across all accounts at a glance
 - **See where your money goes** with category breakdowns and donut charts
@@ -41,15 +39,15 @@ Most finance apps are either too simple (just a list) or too complex (50 setting
 
 ### Download (Android)
 
-Head to [**Releases**](https://github.com/Priyans-hu/dime-money/releases) and grab the latest `.apk`.
+Head to [**Releases**](https://github.com/DrYami0/Coinly/releases) and grab the latest `.apk`.
 
 ### Build from source
 
 Requires [Flutter](https://docs.flutter.dev/get-started/install) 3.11+
 
 ```bash
-git clone https://github.com/Priyans-hu/dime-money.git
-cd dime-money
+git clone https://github.com/DrYami0/Coinly.git
+cd Coinly
 flutter pub get
 dart run build_runner build
 flutter run
