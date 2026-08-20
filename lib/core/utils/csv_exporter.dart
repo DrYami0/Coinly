@@ -4,7 +4,7 @@ import 'package:csv/csv.dart';
 import 'package:drift/drift.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:dime_money/core/database/app_database.dart';
+import 'package:coinly/core/database/app_database.dart';
 
 class CsvExporter {
   final AppDatabase _db;
@@ -36,12 +36,12 @@ class CsvExporter {
 
     final csvData = const ListToCsvConverter().convert(rows);
     final dir = await getTemporaryDirectory();
-    final file = File('${dir.path}/dime_money_export.csv');
+    final file = File('${dir.path}/coinly_export.csv');
     await file.writeAsString(csvData);
 
     await Share.shareXFiles(
       [XFile(file.path)],
-      subject: 'Dime Money Export',
+      subject: 'Coinly Export',
     );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:dime_money/core/extensions/currency_ext.dart';
-import 'package:dime_money/features/dashboard/presentation/providers/dashboard_provider.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
-import 'package:dime_money/shared/widgets/glass_card.dart';
+import 'package:coinly/core/extensions/currency_ext.dart';
+import 'package:coinly/features/dashboard/presentation/providers/dashboard_provider.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/shared/widgets/glass_card.dart';
 
 class BalanceHeader extends ConsumerWidget {
   const BalanceHeader({super.key});

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/extensions/currency_ext.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
-import 'package:dime_money/features/budgets/presentation/widgets/budget_progress_bar.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/extensions/currency_ext.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/features/budgets/presentation/widgets/budget_progress_bar.dart';
 
 class BudgetCard extends ConsumerWidget {
   final Budget budget;

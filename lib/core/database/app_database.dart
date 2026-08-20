@@ -6,15 +6,15 @@ import 'package:flutter/material.dart' show Color, Icons;
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/database/converters.dart';
-import 'package:dime_money/core/constants/category_defaults.dart';
-import 'package:dime_money/features/categories/data/tables/categories_table.dart';
-import 'package:dime_money/features/accounts/data/tables/accounts_table.dart';
-import 'package:dime_money/features/transactions/data/tables/transactions_table.dart';
-import 'package:dime_money/features/budgets/data/tables/budgets_table.dart';
-import 'package:dime_money/features/recurring/data/tables/recurring_rules_table.dart';
-import 'package:dime_money/features/goals/data/tables/goals_table.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/database/converters.dart';
+import 'package:coinly/core/constants/category_defaults.dart';
+import 'package:coinly/features/categories/data/tables/categories_table.dart';
+import 'package:coinly/features/accounts/data/tables/accounts_table.dart';
+import 'package:coinly/features/transactions/data/tables/transactions_table.dart';
+import 'package:coinly/features/budgets/data/tables/budgets_table.dart';
+import 'package:coinly/features/recurring/data/tables/recurring_rules_table.dart';
+import 'package:coinly/features/goals/data/tables/goals_table.dart';
 
 part 'app_database.g.dart';
 
@@ -182,7 +182,7 @@ class AppDatabase extends _$AppDatabase {
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     final dbFolder = await getApplicationDocumentsDirectory();
-    final file = File(p.join(dbFolder.path, 'dime_money.sqlite'));
+    final file = File(p.join(dbFolder.path, 'coinly.sqlite'));
     return NativeDatabase.createInBackground(file);
   });
 }

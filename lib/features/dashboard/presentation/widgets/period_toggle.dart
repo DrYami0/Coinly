@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/core/utils/haptics.dart';
-import 'package:dime_money/features/dashboard/presentation/providers/dashboard_provider.dart';
+import 'package:coinly/core/utils/haptics.dart';
+import 'package:coinly/features/dashboard/presentation/providers/dashboard_provider.dart';
 
 class PeriodToggle extends ConsumerWidget {
   const PeriodToggle({super.key});

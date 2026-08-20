@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/utils/backup_service.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/utils/backup_service.dart';
 
 final databaseProvider = Provider<AppDatabase>((ref) {
   final db = AppDatabase();

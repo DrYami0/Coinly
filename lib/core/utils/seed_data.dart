@@ -1,9 +1,9 @@
 import 'dart:math';
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/features/transactions/data/repositories/transaction_repository.dart';
-import 'package:dime_money/features/budgets/data/repositories/budget_repository.dart';
-import 'package:dime_money/features/accounts/data/repositories/account_repository.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/features/transactions/data/repositories/transaction_repository.dart';
+import 'package:coinly/features/budgets/data/repositories/budget_repository.dart';
+import 'package:coinly/features/accounts/data/repositories/account_repository.dart';
 
 /// Seeds the database with dummy data for testing.
 /// Returns the number of transactions created.

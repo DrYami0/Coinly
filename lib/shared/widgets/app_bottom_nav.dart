@@ -3,9 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:dime_money/core/utils/haptics.dart';
-import 'package:dime_money/features/transactions/presentation/widgets/quick_add_sheet.dart';
-import 'package:dime_money/features/budgets/presentation/widgets/add_budget_sheet.dart';
+import 'package:coinly/core/utils/haptics.dart';
+import 'package:coinly/features/transactions/presentation/widgets/quick_add_sheet.dart';
+import 'package:coinly/features/budgets/presentation/widgets/add_budget_sheet.dart';
 
 class AppBottomNav extends ConsumerWidget {
   final StatefulNavigationShell navigationShell;

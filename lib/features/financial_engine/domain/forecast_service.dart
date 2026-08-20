@@ -1,6 +1,6 @@
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/recurring/occurrence.dart';
-import 'package:dime_money/features/financial_engine/domain/financial_engine.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/recurring/occurrence.dart';
+import 'package:coinly/features/financial_engine/domain/financial_engine.dart';
 
 class PlannedCashFlowEvent {
   final DateTime date;

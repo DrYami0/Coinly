@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dime_money/core/extensions/currency_ext.dart';
+import 'package:coinly/core/extensions/currency_ext.dart';
 
 class AmountText extends StatelessWidget {
   final double amount;

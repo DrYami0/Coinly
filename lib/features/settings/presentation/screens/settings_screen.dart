@@ -4,15 +4,15 @@ import 'package:go_router/go_router.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'dart:io';
-import 'package:dime_money/core/providers/database_provider.dart';
-import 'package:dime_money/core/providers/theme_provider.dart';
-import 'package:dime_money/core/utils/backup_service.dart';
-import 'package:dime_money/core/utils/csv_exporter.dart';
-import 'package:dime_money/core/utils/csv_importer.dart';
-import 'package:dime_money/core/utils/update_checker.dart';
-import 'package:dime_money/shared/widgets/snack_bar_helpers.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
-import 'package:dime_money/core/utils/seed_data.dart';
+import 'package:coinly/core/providers/database_provider.dart';
+import 'package:coinly/core/providers/theme_provider.dart';
+import 'package:coinly/core/utils/backup_service.dart';
+import 'package:coinly/core/utils/csv_exporter.dart';
+import 'package:coinly/core/utils/csv_importer.dart';
+import 'package:coinly/core/utils/update_checker.dart';
+import 'package:coinly/shared/widgets/snack_bar_helpers.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/core/utils/seed_data.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});

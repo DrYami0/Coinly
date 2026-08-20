@@ -1,14 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/core/providers/database_provider.dart';
-import 'package:dime_money/core/money/money.dart';
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/features/financial_engine/domain/forecast_service.dart';
-import 'package:dime_money/features/goals/data/repositories/goal_repository.dart';
-import 'package:dime_money/features/recurring/data/repositories/recurring_repository.dart';
-import 'package:dime_money/features/transactions/data/repositories/transaction_repository.dart';
-import 'package:dime_money/features/accounts/data/repositories/account_repository.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/core/providers/database_provider.dart';
+import 'package:coinly/core/money/money.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/features/financial_engine/domain/forecast_service.dart';
+import 'package:coinly/features/goals/data/repositories/goal_repository.dart';
+import 'package:coinly/features/recurring/data/repositories/recurring_repository.dart';
+import 'package:coinly/features/transactions/data/repositories/transaction_repository.dart';
+import 'package:coinly/features/accounts/data/repositories/account_repository.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
 
 final goalRepositoryProvider = Provider<GoalRepository>((ref) {
   return GoalRepository(ref.watch(databaseProvider));

@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
-import 'package:dime_money/core/database/converters.dart';
-import 'package:dime_money/features/categories/data/tables/categories_table.dart';
-import 'package:dime_money/features/accounts/data/tables/accounts_table.dart';
+import 'package:coinly/core/database/converters.dart';
+import 'package:coinly/features/categories/data/tables/categories_table.dart';
+import 'package:coinly/features/accounts/data/tables/accounts_table.dart';
 
 class RecurringRules extends Table {
   IntColumn get id => integer().autoIncrement()();

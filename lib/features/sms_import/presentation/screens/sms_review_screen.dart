@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/features/sms_import/presentation/providers/sms_import_provider.dart';
-import 'package:dime_money/features/sms_import/presentation/widgets/sms_transaction_card.dart';
+import 'package:coinly/features/sms_import/presentation/providers/sms_import_provider.dart';
+import 'package:coinly/features/sms_import/presentation/widgets/sms_transaction_card.dart';
 
 class SmsReviewScreen extends ConsumerStatefulWidget {
   const SmsReviewScreen({super.key});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:dime_money/core/utils/haptics.dart';
-import 'package:dime_money/core/utils/sheet_padding.dart';
-import 'package:dime_money/features/budgets/presentation/providers/budget_provider.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/core/utils/haptics.dart';
+import 'package:coinly/core/utils/sheet_padding.dart';
+import 'package:coinly/features/budgets/presentation/providers/budget_provider.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
 
 /// Shows a bottom sheet to create a new budget for the current month.
 void showAddBudgetSheet(BuildContext context, WidgetRef ref) {

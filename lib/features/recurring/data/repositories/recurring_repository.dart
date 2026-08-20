@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/money/money.dart';
-import 'package:dime_money/core/recurring/occurrence.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/money/money.dart';
+import 'package:coinly/core/recurring/occurrence.dart';
 
 class RecurringRepository {
   final AppDatabase _db;

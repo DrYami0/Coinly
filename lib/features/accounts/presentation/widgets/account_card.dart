@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/extensions/currency_ext.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/extensions/currency_ext.dart';
 
 class AccountCard extends StatelessWidget {
   final Account account;

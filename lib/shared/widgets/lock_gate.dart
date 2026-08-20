@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
 
 class LockGate extends ConsumerStatefulWidget {
   final Widget child;
@@ -54,7 +54,7 @@ class _LockGateState extends ConsumerState<LockGate>
     setState(() => _errorMessage = null);
     try {
       final didAuth = await _auth.authenticate(
-        localizedReason: 'Unlock Dime Money',
+        localizedReason: 'Unlock Coinly',
         options: const AuthenticationOptions(biometricOnly: true),
       );
       if (didAuth) {
@@ -83,42 +83,45 @@ class _LockGateState extends ConsumerState<LockGate>
 
   @override
   Widget build(BuildContext context) {
-    if (_isLocked) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.lock, size: 64),
-                const SizedBox(height: 16),
-                const Text('Dime Money is locked'),
-                if (_errorMessage != null) ...[
-                  const SizedBox(height: 8),
-                  Text(
-                    _errorMessage!,
-                    style: const TextStyle(color: Colors.red, fontSize: 13),
-                  ),
-                ],
-                const SizedBox(height: 24),
-                FilledButton.icon(
-                  onPressed: _authenticate,
-                  icon: const Icon(Icons.fingerprint),
-                  label: const Text('Unlock'),
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        widget.child,
+        if (_isLocked)
+          Material(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: SafeArea(
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.lock, size: 64),
+                    const SizedBox(height: 16),
+                    const Text('Coinly is locked'),
+                    if (_errorMessage != null) ...[
+                      const SizedBox(height: 8),
+                      Text(
+                        _errorMessage!,
+                        style: const TextStyle(color: Colors.red, fontSize: 13),
+                      ),
+                    ],
+                    const SizedBox(height: 24),
+                    FilledButton.icon(
+                      onPressed: _authenticate,
+                      icon: const Icon(Icons.fingerprint),
+                      label: const Text('Unlock'),
+                    ),
+                    const SizedBox(height: 12),
+                    TextButton(
+                      onPressed: _disableLock,
+                      child: const Text('Disable biometric lock'),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 12),
-                TextButton(
-                  onPressed: _disableLock,
-                  child: const Text('Disable biometric lock'),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      );
-    }
-
-    return widget.child;
+      ],
+    );
   }
 }

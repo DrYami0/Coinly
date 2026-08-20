@@ -1,5 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dime_money/features/sms_import/data/models/parsed_sms.dart';
+import 'package:coinly/features/sms_import/data/models/parsed_sms.dart';
 
 class DuplicateTracker {
   static const _key = 'imported_sms_hashes';

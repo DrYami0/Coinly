@@ -1,4 +1,4 @@
-import 'package:dime_money/core/constants/enums.dart';
+import 'package:coinly/core/constants/enums.dart';
 
 class ParsedSms {
   final String smsId;

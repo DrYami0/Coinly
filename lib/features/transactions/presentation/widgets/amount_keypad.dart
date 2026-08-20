@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dime_money/core/utils/haptics.dart';
+import 'package:coinly/core/utils/haptics.dart';
 
 class AmountKeypad extends StatelessWidget {
   final String currentAmount;

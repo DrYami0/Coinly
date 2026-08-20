@@ -1,5 +1,5 @@
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/features/sms_import/data/models/parsed_sms.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/features/sms_import/data/models/parsed_sms.dart';
 import 'sms_reader_service.dart';
 
 class SmsParserService {

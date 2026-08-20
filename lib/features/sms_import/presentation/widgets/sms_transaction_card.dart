@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/features/sms_import/data/models/parsed_sms.dart';
-import 'package:dime_money/features/sms_import/presentation/providers/sms_import_provider.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/features/sms_import/data/models/parsed_sms.dart';
+import 'package:coinly/features/sms_import/presentation/providers/sms_import_provider.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
 
 class SmsTransactionCard extends ConsumerWidget {
   final ParsedSms item;

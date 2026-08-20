@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/extensions/currency_ext.dart';
-import 'package:dime_money/core/extensions/date_ext.dart';
-import 'package:dime_money/core/utils/haptics.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/extensions/currency_ext.dart';
+import 'package:coinly/core/extensions/date_ext.dart';
+import 'package:coinly/core/utils/haptics.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
 
 class TransactionTile extends ConsumerWidget {
   final Transaction transaction;

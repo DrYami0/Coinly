@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/theme/color_tokens.dart';
-import 'package:dime_money/core/utils/haptics.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
-import 'package:dime_money/features/categories/presentation/widgets/icon_picker.dart';
-import 'package:dime_money/core/utils/sheet_padding.dart';
-import 'package:dime_money/features/categories/presentation/widgets/color_picker.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/theme/color_tokens.dart';
+import 'package:coinly/core/utils/haptics.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/features/categories/presentation/widgets/icon_picker.dart';
+import 'package:coinly/core/utils/sheet_padding.dart';
+import 'package:coinly/features/categories/presentation/widgets/color_picker.dart';
 
 class ManageCategoriesScreen extends ConsumerWidget {
   const ManageCategoriesScreen({super.key});

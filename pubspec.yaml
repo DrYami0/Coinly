@@ -1,4 +1,4 @@
-name: dime_money
+name: coinly
 description: A minimal, beautiful personal finance tracker
 publish_to: 'none'
 version: 0.6.0+9
@@ -48,6 +48,7 @@ dependencies:
   flutter_sms_inbox: ^1.0.4
   permission_handler: ^12.0.1
   notification_listener_service: ^0.3.1
+  supabase_flutter: ^2.17.2
 
 dev_dependencies:
   flutter_test:

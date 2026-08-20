@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
-import 'package:dime_money/features/transactions/presentation/widgets/quick_add_sheet.dart';
-import 'package:dime_money/features/transactions/presentation/widgets/transaction_tile.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/features/transactions/presentation/widgets/quick_add_sheet.dart';
+import 'package:coinly/features/transactions/presentation/widgets/transaction_tile.dart';
 
 class RecentTransactions extends ConsumerWidget {
   const RecentTransactions({super.key});

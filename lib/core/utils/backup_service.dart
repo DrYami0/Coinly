@@ -5,7 +5,7 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:dime_money/core/database/app_database.dart';
+import 'package:coinly/core/database/app_database.dart';
 
 class BackupService {
   final AppDatabase _db;
@@ -36,13 +36,13 @@ class BackupService {
       }
 
       // Source DB file
-      final dbFile = File(p.join(docsDir.path, 'dime_money.sqlite'));
+      final dbFile = File(p.join(docsDir.path, 'coinly.sqlite'));
       if (!dbFile.existsSync()) return;
 
       // Copy with timestamp
       final timestamp = DateTime.now().toIso8601String().replaceAll(':', '-');
       final backupFile =
-          File(p.join(backupFolder.path, 'dime_money_$timestamp.sqlite'));
+          File(p.join(backupFolder.path, 'coinly_$timestamp.sqlite'));
       await dbFile.copy(backupFile.path);
 
       // Prune old backups — keep last N
@@ -80,7 +80,7 @@ class BackupService {
   /// Replace DB file with a backup. For future use — not wired to UI yet.
   Future<void> restoreFromBackup(File backupFile) async {
     final docsDir = await getApplicationDocumentsDirectory();
-    final dbFile = File(p.join(docsDir.path, 'dime_money.sqlite'));
+    final dbFile = File(p.join(docsDir.path, 'coinly.sqlite'));
     await backupFile.copy(dbFile.path);
   }
 }

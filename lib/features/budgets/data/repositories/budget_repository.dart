@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/money/money.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/money/money.dart';
 
 class BudgetRepository {
   final AppDatabase _db;

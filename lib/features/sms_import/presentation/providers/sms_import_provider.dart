@@ -1,15 +1,15 @@
 import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/features/sms_import/data/models/parsed_sms.dart';
-import 'package:dime_money/features/sms_import/data/services/sms_reader_service.dart';
-import 'package:dime_money/features/sms_import/data/services/notification_reader_service.dart';
-import 'package:dime_money/features/sms_import/data/services/sms_parser_service.dart';
-import 'package:dime_money/features/sms_import/data/services/category_matcher.dart';
-import 'package:dime_money/features/sms_import/data/services/duplicate_tracker.dart';
-import 'package:dime_money/features/transactions/data/repositories/transaction_repository.dart';
-import 'package:dime_money/features/categories/data/repositories/category_repository.dart';
-import 'package:dime_money/features/accounts/data/repositories/account_repository.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/features/sms_import/data/models/parsed_sms.dart';
+import 'package:coinly/features/sms_import/data/services/sms_reader_service.dart';
+import 'package:coinly/features/sms_import/data/services/notification_reader_service.dart';
+import 'package:coinly/features/sms_import/data/services/sms_parser_service.dart';
+import 'package:coinly/features/sms_import/data/services/category_matcher.dart';
+import 'package:coinly/features/sms_import/data/services/duplicate_tracker.dart';
+import 'package:coinly/features/transactions/data/repositories/transaction_repository.dart';
+import 'package:coinly/features/categories/data/repositories/category_repository.dart';
+import 'package:coinly/features/accounts/data/repositories/account_repository.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
 
 enum SmsImportStatus {
   idle,

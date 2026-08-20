@@ -1,4 +1,4 @@
-import 'package:dime_money/core/database/app_database.dart';
+import 'package:coinly/core/database/app_database.dart';
 
 class CategoryMatcher {
   static const _keywordMap = <String, String>{

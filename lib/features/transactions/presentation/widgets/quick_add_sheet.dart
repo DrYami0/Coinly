@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/utils/haptics.dart';
-import 'package:dime_money/core/utils/sheet_padding.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
-import 'package:dime_money/features/transactions/presentation/widgets/amount_keypad.dart';
-import 'package:dime_money/features/transactions/presentation/widgets/category_picker_grid.dart';
-import 'package:dime_money/features/transactions/presentation/widgets/account_selector.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/utils/haptics.dart';
+import 'package:coinly/core/utils/sheet_padding.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/features/transactions/presentation/widgets/amount_keypad.dart';
+import 'package:coinly/features/transactions/presentation/widgets/category_picker_grid.dart';
+import 'package:coinly/features/transactions/presentation/widgets/account_selector.dart';
 
 class QuickAddSheet extends ConsumerStatefulWidget {
   final Transaction? editTransaction;

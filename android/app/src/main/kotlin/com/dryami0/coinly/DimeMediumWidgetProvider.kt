@@ -1,4 +1,4 @@
-package com.priyanshu.dime_money
+package com.dryami0.coinly
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
@@ -7,7 +7,7 @@ import android.content.res.Configuration
 import android.widget.RemoteViews
 import es.antonborri.home_widget.HomeWidgetProvider
 
-class DimeSmallWidgetProvider : HomeWidgetProvider() {
+class DimeMediumWidgetProvider : HomeWidgetProvider() {
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
@@ -16,10 +16,16 @@ class DimeSmallWidgetProvider : HomeWidgetProvider() {
     ) {
         val currency = widgetData.getString("currency", "$") ?: "$"
         val balance = widgetData.getString("balance", "0.00") ?: "0.00"
+        val todayExpense = widgetData.getString("today_expense", "0.00") ?: "0.00"
+        val todayIncome = widgetData.getString("today_income", "0.00") ?: "0.00"
 
         for (widgetId in appWidgetIds) {
-            val views = RemoteViews(context.packageName, R.layout.widget_small)
+            val views = RemoteViews(context.packageName, R.layout.widget_medium)
             views.setTextViewText(R.id.widget_balance, "$currency$balance")
+            views.setTextViewText(
+                R.id.widget_today,
+                "Today: ↗$currency$todayIncome  ↙$currency$todayExpense"
+            )
 
             val intent = context.packageManager.getLaunchIntentForPackage(context.packageName)
             if (intent != null) {

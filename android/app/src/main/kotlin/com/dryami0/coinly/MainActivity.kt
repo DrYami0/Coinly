@@ -1,4 +1,4 @@
-package com.priyanshu.dime_money
+package com.dryami0.coinly
 
 import android.content.Intent
 import android.os.Bundle

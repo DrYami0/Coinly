@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/utils/haptics.dart';
-import 'package:dime_money/core/utils/sheet_padding.dart';
-import 'package:dime_money/features/budgets/presentation/providers/budget_provider.dart';
-import 'package:dime_money/features/budgets/presentation/widgets/budget_card.dart';
-import 'package:dime_money/shared/widgets/empty_state.dart';
-import 'package:dime_money/shared/widgets/snack_bar_helpers.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/utils/haptics.dart';
+import 'package:coinly/core/utils/sheet_padding.dart';
+import 'package:coinly/features/budgets/presentation/providers/budget_provider.dart';
+import 'package:coinly/features/budgets/presentation/widgets/budget_card.dart';
+import 'package:coinly/shared/widgets/empty_state.dart';
+import 'package:coinly/shared/widgets/snack_bar_helpers.dart';
 
 class BudgetsScreen extends ConsumerWidget {
   const BudgetsScreen({super.key});

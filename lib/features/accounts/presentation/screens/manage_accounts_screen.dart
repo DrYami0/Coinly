@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/utils/haptics.dart';
-import 'package:dime_money/core/utils/sheet_padding.dart';
-import 'package:dime_money/core/theme/color_tokens.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
-import 'package:dime_money/features/accounts/presentation/providers/accounts_provider.dart';
-import 'package:dime_money/features/accounts/presentation/widgets/account_card.dart';
-import 'package:dime_money/features/accounts/presentation/widgets/transfer_sheet.dart';
-import 'package:dime_money/shared/widgets/snack_bar_helpers.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/utils/haptics.dart';
+import 'package:coinly/core/utils/sheet_padding.dart';
+import 'package:coinly/core/theme/color_tokens.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/features/accounts/presentation/providers/accounts_provider.dart';
+import 'package:coinly/features/accounts/presentation/widgets/account_card.dart';
+import 'package:coinly/features/accounts/presentation/widgets/transfer_sheet.dart';
+import 'package:coinly/shared/widgets/snack_bar_helpers.dart';
 
 class ManageAccountsScreen extends ConsumerWidget {
   const ManageAccountsScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:drift/drift.dart';
-import 'package:dime_money/features/categories/data/tables/categories_table.dart';
+import 'package:coinly/features/categories/data/tables/categories_table.dart';
 
 @DataClassName('Budget')
 class Budgets extends Table {

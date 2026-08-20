@@ -15,7 +15,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.priyanshu.dime_money"
+    namespace = "com.dryami0.coinly"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
     buildToolsVersion = "36.1.0"
@@ -30,7 +30,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.priyanshu.dime_money"
+        applicationId = "com.dryami0.coinly"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

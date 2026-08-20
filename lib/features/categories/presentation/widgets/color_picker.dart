@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:dime_money/core/theme/color_tokens.dart';
-import 'package:dime_money/core/utils/haptics.dart';
+import 'package:coinly/core/theme/color_tokens.dart';
+import 'package:coinly/core/utils/haptics.dart';
 
 class ColorPicker extends StatelessWidget {
   final int? selectedColor;

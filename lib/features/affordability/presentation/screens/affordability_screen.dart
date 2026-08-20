@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:dime_money/features/financial_engine/domain/financial_engine.dart';
-import 'package:dime_money/features/financial_engine/presentation/providers/forecast_provider.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/features/financial_engine/domain/financial_engine.dart';
+import 'package:coinly/features/financial_engine/presentation/providers/forecast_provider.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
 
 class AffordabilityScreen extends ConsumerStatefulWidget {
   const AffordabilityScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dime_money/core/constants/enums.dart';
+import 'package:coinly/core/constants/enums.dart';
 
 class FinancialProfile {
   final String? primaryCurrency;

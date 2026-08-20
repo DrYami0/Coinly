@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/core/providers/database_provider.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/features/budgets/data/repositories/budget_repository.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/core/providers/database_provider.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/features/budgets/data/repositories/budget_repository.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
 
 final budgetRepositoryProvider = Provider<BudgetRepository>((ref) {
   return BudgetRepository(ref.watch(databaseProvider));

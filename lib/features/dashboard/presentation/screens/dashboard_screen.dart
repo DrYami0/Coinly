@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gap/gap.dart';
-import 'package:dime_money/features/dashboard/presentation/providers/dashboard_provider.dart';
-import 'package:dime_money/features/dashboard/presentation/widgets/balance_header.dart';
-import 'package:dime_money/features/dashboard/presentation/widgets/spending_donut.dart';
-import 'package:dime_money/features/dashboard/presentation/widgets/period_toggle.dart';
-import 'package:dime_money/features/dashboard/presentation/widgets/recent_transactions.dart';
-import 'package:dime_money/features/financial_engine/domain/financial_engine.dart';
-import 'package:dime_money/features/financial_engine/presentation/providers/forecast_provider.dart';
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/money/money.dart';
+import 'package:coinly/features/dashboard/presentation/providers/dashboard_provider.dart';
+import 'package:coinly/features/dashboard/presentation/widgets/balance_header.dart';
+import 'package:coinly/features/dashboard/presentation/widgets/spending_donut.dart';
+import 'package:coinly/features/dashboard/presentation/widgets/period_toggle.dart';
+import 'package:coinly/features/dashboard/presentation/widgets/recent_transactions.dart';
+import 'package:coinly/features/financial_engine/domain/financial_engine.dart';
+import 'package:coinly/features/financial_engine/presentation/providers/forecast_provider.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/money/money.dart';
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -46,7 +46,7 @@ class DashboardScreen extends ConsumerWidget {
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                   ),
-                  const Text('Dime Money'),
+                  const Text('Coinly'),
                 ],
               ),
             ),

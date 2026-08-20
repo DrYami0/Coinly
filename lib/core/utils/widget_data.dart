@@ -1,7 +1,7 @@
 import 'package:home_widget/home_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/constants/enums.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/constants/enums.dart';
 
 Future<void> updateWidgetData(AppDatabase db) async {
   // Compute total balance across all active accounts

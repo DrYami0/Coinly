@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quick_actions/quick_actions.dart';
-import 'package:dime_money/core/constants/enums.dart';
-import 'package:dime_money/core/router/app_router.dart' show rootNavigatorKey;
-import 'package:dime_money/features/transactions/presentation/widgets/quick_add_sheet.dart';
+import 'package:coinly/core/constants/enums.dart';
+import 'package:coinly/core/router/router_provider.dart'
+  show rootNavigatorKey;
+import 'package:coinly/features/transactions/presentation/widgets/quick_add_sheet.dart';
 
 class QuickActionHandler {
   static const _channel =
-      MethodChannel('com.priyanshu.dime_money/quick_actions');
+      MethodChannel('com.priyanshu.coinly/quick_actions');
   static final QuickActions _quickActions = QuickActions();
   static bool _initialized = false;
 

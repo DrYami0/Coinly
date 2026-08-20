@@ -1,5 +1,5 @@
 import 'package:drift/drift.dart';
-import 'package:dime_money/core/database/converters.dart';
+import 'package:coinly/core/database/converters.dart';
 
 class Goals extends Table {
   IntColumn get id => integer().autoIncrement()();

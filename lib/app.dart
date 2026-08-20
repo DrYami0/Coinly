@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/core/theme/app_theme.dart';
-import 'package:dime_money/core/router/app_router.dart' show appRouter, rootNavigatorKey;
-import 'package:dime_money/core/providers/theme_provider.dart';
-import 'package:dime_money/core/utils/update_checker.dart';
-import 'package:dime_money/core/utils/quick_action_handler.dart';
-import 'package:dime_money/features/settings/presentation/providers/settings_provider.dart';
-import 'package:dime_money/shared/widgets/lock_gate.dart';
+import 'package:coinly/core/theme/app_theme.dart';
+import 'package:coinly/core/router/router_provider.dart'
+    show rootNavigatorKey, appRouterProvider;
+import 'package:coinly/core/providers/theme_provider.dart';
+import 'package:coinly/core/utils/update_checker.dart';
+import 'package:coinly/core/utils/quick_action_handler.dart';
+import 'package:coinly/features/settings/presentation/providers/settings_provider.dart';
+import 'package:coinly/shared/widgets/lock_gate.dart';
 
 class DimeMoneyApp extends ConsumerStatefulWidget {
   final bool checkForUpdate;
@@ -47,6 +48,7 @@ class _DimeMoneyAppState extends ConsumerState<DimeMoneyApp> {
   @override
   Widget build(BuildContext context) {
     final themeMode = ref.watch(themeModeProvider);
+    final appRouter = ref.watch(appRouterProvider);
 
     // Update quick action shortcuts when income toggle changes
     final incomeEnabled = ref.watch(incomeEnabledProvider);
@@ -59,15 +61,14 @@ class _DimeMoneyAppState extends ConsumerState<DimeMoneyApp> {
       QuickActionHandler.updateShortcuts(incomeEnabled);
     }
 
-    return LockGate(
-      child: MaterialApp.router(
-        title: 'Dime Money',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.light(),
-        darkTheme: AppTheme.dark(),
-        themeMode: themeMode,
-        routerConfig: appRouter,
-      ),
+    return MaterialApp.router(
+      title: 'Coinly',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
+      themeMode: themeMode,
+      routerConfig: appRouter,
+      builder: (context, child) => LockGate(child: child ?? const SizedBox()),
     );
   }
 }
@@ -92,23 +93,23 @@ class _AutoUpdateDialogState extends State<_AutoUpdateDialog> {
     }
     setState(() => _downloading = true);
     try {
-      await UpdateChecker.downloadAndInstall(
-        widget.info.apkDownloadUrl!,
-        (received, total) {
-          if (!mounted) return;
-          setState(() {
-            _progress = total > 0 ? received / total : 0;
-          });
-        },
-      );
+      await UpdateChecker.downloadAndInstall(widget.info.apkDownloadUrl!, (
+        received,
+        total,
+      ) {
+        if (!mounted) return;
+        setState(() {
+          _progress = total > 0 ? received / total : 0;
+        });
+      });
       if (mounted) Navigator.pop(context);
     } catch (e) {
       if (!mounted) return;
       setState(() => _downloading = false);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Download failed: $e')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Download failed: $e')));
       }
     }
   }
@@ -140,11 +141,13 @@ class _AutoUpdateDialogState extends State<_AutoUpdateDialog> {
         ),
         FilledButton(
           onPressed: _downloading ? null : _download,
-          child: Text(_downloading
-              ? 'Downloading…'
-              : widget.info.hasApk
-                  ? 'Update'
-                  : 'View on GitHub'),
+          child: Text(
+            _downloading
+                ? 'Downloading…'
+                : widget.info.hasApk
+                ? 'Update'
+                : 'View on GitHub',
+          ),
         ),
       ],
     );

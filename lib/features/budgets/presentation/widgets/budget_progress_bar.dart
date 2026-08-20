@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dime_money/core/theme/color_tokens.dart';
+import 'package:coinly/core/theme/color_tokens.dart';
 
 class BudgetProgressBar extends StatelessWidget {
   final double spent;

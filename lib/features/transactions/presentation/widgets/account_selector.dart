@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dime_money/core/database/app_database.dart';
-import 'package:dime_money/core/utils/haptics.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/utils/haptics.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
 
 class AccountSelector extends ConsumerWidget {
   final int? selectedId;

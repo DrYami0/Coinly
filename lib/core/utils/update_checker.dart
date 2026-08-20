@@ -23,7 +23,7 @@ class UpdateInfo {
 }
 
 class UpdateChecker {
-  static const _repo = 'Priyans-hu/dime-money';
+  static const _repo = 'DrYami0/Coinly';
   static const _apiUrl =
       'https://api.github.com/repos/$_repo/releases/latest';
   static const _checkKey = 'update_check_epoch';
@@ -123,7 +123,7 @@ class UpdateChecker {
 
       final totalBytes = response.contentLength ?? -1;
       final dir = await getTemporaryDirectory();
-      final filePath = '${dir.path}/dime_money_update.apk';
+      final filePath = '${dir.path}/coinly_update.apk';
       final file = File(filePath);
       final sink = file.openWrite();
 

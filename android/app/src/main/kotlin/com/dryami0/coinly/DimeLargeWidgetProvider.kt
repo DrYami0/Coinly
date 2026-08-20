@@ -1,4 +1,4 @@
-package com.priyanshu.dime_money
+package com.dryami0.coinly
 
 import android.appwidget.AppWidgetManager
 import android.content.Context

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dime_money/core/extensions/date_ext.dart';
-import 'package:dime_money/features/transactions/presentation/providers/transactions_provider.dart';
+import 'package:coinly/core/extensions/date_ext.dart';
+import 'package:coinly/features/transactions/presentation/providers/transactions_provider.dart';
 
 enum DashboardPeriod { daily, weekly, monthly }
 
