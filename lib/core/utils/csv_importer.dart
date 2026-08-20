@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:coinly/core/constants/enums.dart';
 import 'package:coinly/core/database/app_database.dart';
+import 'package:coinly/core/money/money.dart';
 import 'package:drift/drift.dart';
 
 class ImportError {
@@ -153,6 +154,7 @@ class CsvImporter {
             TransactionsCompanion.insert(
               type: type,
               amount: amount,
+              amountMinor: Value(majorToMinor(amount)),
               categoryId: Value(categoryId),
               accountId: accountId,
               toAccountId: Value(toAccountId),
